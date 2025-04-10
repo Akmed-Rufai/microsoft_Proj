@@ -18,7 +18,9 @@ function SearchBar() {
         setData(data);
       } catch (error) {
         console.error(error);
-      } 
+      } finally {
+        setLoading(false);
+      }
     };
     fetchData();
   }, []);
@@ -33,7 +35,9 @@ function SearchBar() {
       setUserDetails(data);
     } catch (error) {
       console.error(error);
-    } 
+    } finally {
+      setLoading(false);
+    }
   };
 
   // Handle input change and trigger search
@@ -113,11 +117,10 @@ function SearchBar() {
           </button>
         </div>
       </div>
-      <div>
-       
+
       {userDetails ? (
         <div>
-           <i className="fas fa-coffee"></i>
+          <i className="fas fa-coffee"></i>
           <img
             src={userDetails.avatar_url}
             alt="avatar"
@@ -141,7 +144,6 @@ function SearchBar() {
       ) : (
         filteredData
       )}
-    </div>
     </div>
   );
 }
