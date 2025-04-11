@@ -135,13 +135,17 @@ function SearchBar() {
           <p><scan className="font-semibold">Followers:</scan> {userDetails.followers}</p>
           <p><scan className="font-semibold">Following:</scan> {userDetails.following}</p>
           <p><scan className="font-semibold">Location:</scan> {userDetails.location || 'Not specified'}</p>
-          <a
-            href={userDetails.repos_url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View Repositories
-          </a>
+          <p className='cursor-pointer hover:underline'>
+            <a
+              href={userDetails.repos_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold"
+            >
+              Repos:
+            </a>
+             View Repositories
+          </p>
         </div>
       ) : filteredData.length === 0 ? (
         <p>Record not found</p>
